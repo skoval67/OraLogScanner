@@ -22,11 +22,11 @@ if ( not IO::Select->new(\*STDIN)->can_read(0.1) ) {
 
 while( <$info> ) {
 
-  if ( /(Fatal NI connect error [0-9]{5})/ ) {
+  if ( /(Fatal NI connect error [0-9]{1,5})/ ) {
     $FailedSockets[$fs_count++][2] = $1;
     
     while ( <$info> ) {
-      if ( /(Fatal NI connect error [0-9]{5})/ ) {
+      if ( /(Fatal NI connect error [0-9]{1,5})/ ) {
         $FailedSockets[$fs_count++][2] = $1;
         next;
       };
